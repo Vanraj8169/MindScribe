@@ -1,23 +1,22 @@
-import React from 'react'
-import SideBar from './_components/SideBar';
-
+import React from "react";
+import SideBar from "./_components/SideBar";
+import Header from "./_components/Header";
 
 const layout = ({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) => {
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
   return (
     <div>
-
-        <div className='md:w-64 hidden md:block fixed '>
-            <SideBar />
-        </div>
-        <div className='md:ml-64'>
-      {children}
+      <div className="md:w-64 hidden md:block fixed ">
+        <SideBar />
+      </div>
+      
+      <div className="md:ml-64"><Header />
+      {children}</div>
     </div>
-    </div>
-    )
-}
+  );
+};
 
-export default layout
+export default layout;

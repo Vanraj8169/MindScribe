@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import { FileClock, Home, Settings, WalletCards } from "lucide-react";
+import { usePathname } from "next/navigation";
 const SideBar = () => {
   const menuList = [
     {
@@ -24,15 +26,20 @@ const SideBar = () => {
       path: "/dashboard/setting",
     },
   ];
+
+  const path = usePathname();
+
+
   return (
     <div className="h-screen p-5 shadow-sm border">
       <div className="flex justify-center">
         <Image src={"./logo.svg"} alt="logo" width={120} height={100} />
       </div>
-      <div className="mt-10">
+      <hr className="my-6 border"/>
+      <div className="mt-3">
         {menuList.map((menu, index) => (
           <div
-            className="flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer"
+            className={`flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer items-center ${path == menu.path && 'bg-primary text-white'}`}
             key={index}
           >
             <menu.icon />
